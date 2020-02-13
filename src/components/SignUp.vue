@@ -7,13 +7,13 @@
           <v-layout column>
             <v-flex>
               <v-text-field
-                id="name"
-                name="name"
-                :label="$t('signup.NAME')"
-                v-model="name"
-                :data-vv-as="$t('signup.NAME')"
-                :error="errors.has('name')"
-                :error-messages="errors.collect('name')"
+                id="username"
+                name="username"
+                :label="$t('signup.USERNAME')"
+                v-model="username"
+                :data-vv-as="$t('signup.USERNAME')"
+                :error="errors.has('username')"
+                :error-messages="errors.collect('username')"
                 v-validate.disable="'required'"
                 autocomplete="off"
               ></v-text-field>
@@ -85,7 +85,7 @@ export default {
   },
   data() {
     return {
-      name: '',
+      username: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -97,7 +97,7 @@ export default {
       const valid = await this.$validator.validateAll()
       if (valid) {
         await this.userSignUp({
-          name: this.name,
+          username: this.username,
           email: this.email,
           password: this.password
         })

@@ -10,7 +10,8 @@ const actions = {
       api
         .userSignUp(payload)
         .then(response => {
-          if (response.status === 201) {
+          if (response.status === 200) {
+            console.log(response.data)
             window.localStorage.setItem(
               'user',
               JSON.stringify(response.data.user)

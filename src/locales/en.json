@@ -138,6 +138,7 @@
   },
   "signup": {
     "TITLE": "Signup",
+    "USERNAME" : "Username",
     "NAME": "Name",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
