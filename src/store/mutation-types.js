@@ -23,6 +23,9 @@ export const FILL_PROFILE = 'FILL_PROFILE'
 export const ADD_PROFILE_DATA = 'ADD_PROFILE_DATA'
 // cities
 export const FILL_ALL_CITIES = 'FILL_ALL_CITIES'
+// paints
+export const FILL_ALL_PAINTS = 'FILL_ALL_PAINTS'
+
 // Admin - Cities
 export const CITIES = 'CITIES'
 export const TOTAL_CITIES = 'TOTAL_CITIES'

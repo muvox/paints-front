@@ -11,10 +11,6 @@ const actions = {
         .userSignUp(payload)
         .then(response => {
           if (response.status === 200) {
-            console.log(response.data)
-            const test = JSON.stringify(response.data)
-            console.log('Tämä on testi signupissa')
-            console.log(response)
             window.localStorage.setItem(
               'user',
               JSON.stringify(response.data.user)
