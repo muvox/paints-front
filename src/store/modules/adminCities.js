@@ -6,7 +6,7 @@ const getters = {
   cities: state => state.cities,
   totalCities: state => state.totalCities
 }
-
+//TODO: pay attention here!!!
 const actions = {
   getCities({ commit }, payload) {
     return new Promise((resolve, reject) => {
