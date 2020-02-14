@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      name: this.$store.state.auth.user.name,
+      name: this.$store.state.auth.user.username,
       showVerifyDialog: !this.$store.state.verify.emailVerified
     }
   }
