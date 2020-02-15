@@ -1,15 +1,17 @@
 <template>
   <v-container fluid>
-    <label class="test" v-for="paint in this.paints" :key="paint.id">
-      <h3>{{ paint.name }}</h3>
-    </label>
+    <b-row v-for="paints in this.chunkedPaints" :key="paints.index">
+      <b-col v-for="paint in paints" :key="paint.name">
+        <PaintCard v-bind:paint="paint" :key="paint.id"></PaintCard>
+      </b-col>
+    </b-row>
     <button v-on:click="paskaa">Click</button>
   </v-container>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-
+import PaintCard from './common/PaintCard.vue'
 export default {
   metaInfo() {
     return {
@@ -20,19 +22,25 @@ export default {
   data() {
     return {
       paints: this.$store.getters.allPaints,
-      dataTableLoading: true
+      dataTableLoading: true,
+      chunkedPaints: []
     }
   },
   methods: {
     ...mapActions(['getAllPaints']),
     paskaa() {
       console.log(this.paints)
-      console.log(this.paints.name)
+      console.log(this.chunkedPaints)
+      console.log('done')
     }
   },
-  async mounted() {
+  async created() {
     console.log('im here')
     await this.getAllPaints()
+    this.chunkedPaints = this._.chunk(this.paints, 4)
+  },
+  components: {
+    PaintCard
   }
 }
 </script>

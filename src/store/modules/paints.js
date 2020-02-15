@@ -9,17 +9,15 @@ const getters = {
 const actions = {
   getAllPaints({ commit }) {
     return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
       api
         .getAllPaints()
         .then(response => {
           if (response.status === 200) {
-            const paints = []
-            const array = response.data
-            console.log(array)
-            array.forEach(element => {
-              paints.push(element.name, element._id)
-            })
-            commit(types.FILL_ALL_PAINTS, paints)
+            commit(types.FILL_ALL_PAINTS, response.data)
+            console.log(response.data)
+            // commit(types.TOTAL_CITIES, response.data.totalDocs)
+            commit(types.SHOW_LOADING, false)
             resolve()
           }
         })

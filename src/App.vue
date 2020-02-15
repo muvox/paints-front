@@ -80,4 +80,7 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+/* @import 'scss/_variables.scss';
+@import 'scss/_bootswatch.scss'; */
+@import 'scss/bootstrap.css';
 </style>
