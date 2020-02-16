@@ -17,7 +17,7 @@ export default {
   props: 'paint',
   data() {
     return {
-      bgColor: 'backgroundColor: ' + this.paint.colorId
+      bgColor: `backgroundColor: ${this.paint.colorId}`
     }
   }
 }
