@@ -42,7 +42,7 @@
                 :to="{ name: 'forgotPassword' }"
                 color="white"
                 small
-                flat
+                text
                 class="btnForgotPassword"
                 >{{ $t('login.FORGOT_PASSWORD') }}</v-btn
               >
