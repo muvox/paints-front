@@ -27,8 +27,6 @@
   "dependencies": {
     "@mdi/font": "^4.9.95",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.4.1",
     "core-js": "^3.6.4",
     "date-fns": "^2.9.0",
     "remark-cli": "^7.0.1",
@@ -41,7 +39,7 @@
     "vue-meta": "^2.3.2",
     "vue-resize-text": "^0.1.1",
     "vue-router": "^3.1.5",
-    "vuetify": "^1.5.22",
+    "vuetify": "^2.2.12",
     "vuetify-confirm": "^0.2.6",
     "vuex": "^3.1.2"
   },
@@ -58,6 +56,7 @@
     "babel-eslint": "^10.0.3",
     "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.2.0",
+    "deepmerge": "^4.2.2",
     "eslint": "^6.8.0",
     "eslint-config-formidable": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.2",

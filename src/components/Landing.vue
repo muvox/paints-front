@@ -1,17 +1,18 @@
 :<template>
   <v-container fluid>
-    <b-row v-for="paints in this.chunkedPaints" :key="paints.index">
-      <b-col v-for="paint in paints" :key="paint.id">
-        <h1>{{ paint.name }}</h1>
-      </b-col>
-    </b-row>
+    <v-row v-for="paints in this.chunkedPaints" :key="paints.index">
+      <v-col v-for="paint in paints" :key="paint.id">
+        <PaintCard :paint="paint" :key="paint.id"></PaintCard>
+        <a>{{ paint.name }} </a>
+      </v-col>
+    </v-row>
     <button v-on:click="paskaa">Click</button>
   </v-container>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-// import PaintCard from './common/PaintCard.vue'
+import PaintCard from './common/PaintCard.vue'
 export default {
   metaInfo() {
     return {
@@ -21,27 +22,31 @@ export default {
   },
   data() {
     return {
-      paints: this.$store.getters.allPaints
+      paints: this.$store.getters.allPaints,
+      chunkedPaints: []
     }
   },
   methods: {
     ...mapActions(['getAllPaints']),
     paskaa() {
       console.log(this.chunkedPaints)
+    },
+    chunkPaints(array) {
+      return this._.chunk(array, 4)
     }
   },
-  async beforeCreated() {
+  async mounted() {
     console.log('done')
     await this.getAllPaints()
+    this.paints = this.$store.getters.allPaints
+    this.chunkedPaints = this.chunkPaints(this.paints)
+    console.log(this.chunkedPaints)
   },
   components: {
-    // PaintCard
+    PaintCard
   },
-  computed: {
-    chunkedPaints() {
-      return this._.chunk(this.paints, 4)
-      console.log('im called')
-    }
+  props: {
+    paint: Object
   }
 }
 </script>

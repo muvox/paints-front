@@ -14,7 +14,12 @@
 <script>
 export default {
   name: 'PaintCard',
-  props: 'paint',
+  props: {
+    paint: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       bgColor: `backgroundColor: ${this.paint.colorId}`
