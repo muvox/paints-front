@@ -15,12 +15,14 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_ALL_PAINTS, response.data)
+            console.log(response)
             // commit(types.TOTAL_CITIES, response.data.totalDocs)
             commit(types.SHOW_LOADING, false)
             resolve()
           }
         })
         .catch(error => {
+          console.log(error)
           handleError(error, commit, reject)
         })
     })

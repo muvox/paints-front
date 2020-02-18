@@ -35,6 +35,7 @@ const actions = {
         .getProfile()
         .then(response => {
           if (response.status === 200) {
+            console.log(response.data)
             commit(types.FILL_PROFILE, response.data)
             buildSuccess(null, commit, resolve)
           }

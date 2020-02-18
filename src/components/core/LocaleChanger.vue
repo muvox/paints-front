@@ -1,26 +1,26 @@
 <template>
-  <v-menu v-model="showMenu" offset-y>
+  <v-menu offset-y>
     <template v-slot:activator="{ on }">
       <v-btn class="btnLocaleActivation" text v-on="on">
         <v-icon>mdi-earth</v-icon>
         &nbsp;{{ displayLocale }}
       </v-btn>
-      <v-list>
-        <v-list-item
-          active-class="white--text"
-          v-for="(item, i) in langs"
-          :key="`Lang${i}`"
-          :value="item.lang"
-          @click="switchLocale(item.lang)"
-          :class="[item.class]"
-        >
-          <country-flag :country="item.flag" size="small" class="pl-5" />
-          <v-list-item-title class="ml-3">{{
-            item.lang.toUpperCase()
-          }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
     </template>
+    <v-list>
+      <v-list-item
+        active-class="white--text"
+        v-for="(item, i) in langs"
+        :key="`Lang${i}`"
+        :value="item.lang"
+        @click="switchLocale(item.lang)"
+        :class="[item.class]"
+      >
+        <country-flag :country="item.flag" size="small" class="pl-5" />
+        <v-list-item-title class="ml-3">{{
+          item.lang.toUpperCase()
+        }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
   </v-menu>
 </template>
 

@@ -84,10 +84,17 @@ const actions = {
     })
   },
   autoLogin({ commit }) {
+    console.log(localStorage.getItem('user'))
+    console.log(typeof localStorage.getItem('user'))
     const user = JSON.parse(localStorage.getItem('user'))
+    console.log('Having fun!1')
     commit(types.SAVE_USER, user)
+    console.log('Having fun!2')
+    console.log(localStorage.getItem('token'))
     commit(types.SAVE_TOKEN, JSON.parse(localStorage.getItem('token')))
+    console.log('Having fun!3')
     commit(types.SET_LOCALE, JSON.parse(localStorage.getItem('locale')))
+    console.log('Having fun!4')
     commit(types.EMAIL_VERIFIED, user.verified)
   },
   userLogout({ commit }) {

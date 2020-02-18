@@ -19,7 +19,7 @@
               <v-spacer></v-spacer>
               <v-btn
                 color="primary"
-                flat
+                text
                 @click="showVerifyDialog = false"
                 class="btnClose"
                 >{{ $t('home.CLOSE') }}</v-btn

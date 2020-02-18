@@ -19,6 +19,7 @@ export const formatErrorMessages = (translationParent, msg) => {
   const errorArray = []
   // Check for error msgs
   if (msg !== null) {
+    console.log(msg)
     const json = JSON.parse(JSON.stringify(msg))
     // If error message is an array, then we have mutiple errors
     if (Array.isArray(json)) {
@@ -73,8 +74,8 @@ export const handleError = (error, commit, reject) => {
   commit(types.ERROR, null)
 
   // Checks if unauthorized
+  console.log(error)
   if (error.response.status === 401) {
-    store.dispatch('userLogout')
   } else {
     // Any other error
     errMsg = error.response

@@ -36,11 +36,9 @@ export default {
     }
   },
   async mounted() {
-    console.log('done')
     await this.getAllPaints()
     this.paints = this.$store.getters.allPaints
     this.chunkedPaints = this.chunkPaints(this.paints)
-    console.log(this.chunkedPaints)
   },
   components: {
     PaintCard
