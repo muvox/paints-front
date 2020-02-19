@@ -21,7 +21,10 @@ const app = new Vue({
   render: h => h(App),
   created() {
     store.dispatch('setLocale', store.getters.locale)
-    if (store.getters.isTokenSet) {
+    console.log(store.state.auth.token)
+    if (typeof store.state.auth.token === 'boolean') {
+      store.dispatch('userLogout')
+    } else if (typeof store.state.auth.token === 'string') {
       store.dispatch('autoLogin')
     }
   }

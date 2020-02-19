@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <v-card class="mx-auto" max-width="350" outlined>
     <span
       style="
             height: 100px; width: 100px; border-radius: 50%; display: inline-block;
@@ -8,7 +8,7 @@
     >
     </span>
     <h3>{{ paint.name }}</h3>
-  </div>
+  </v-card>
 </template>
 
 <script>

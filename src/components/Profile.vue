@@ -126,38 +126,6 @@
               </v-flex>
               <v-flex xs12 md4>
                 <v-text-field
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  :label="$t('myProfile.PHONE')"
-                  v-model="phone"
-                  :data-vv-as="$t('myProfile.PHONE')"
-                  :error="errors.has('phone')"
-                  :error-messages="errors.collect('phone')"
-                  v-validate.disable="'required'"
-                  autocomplete="off"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12 md4>
-                <v-autocomplete
-                  id="city"
-                  name="city"
-                  :label="$t('myProfile.CITY')"
-                  :search-input.sync="searchInput"
-                  v-model="city"
-                  :items="allCities"
-                  clearable
-                  clear-icon="mdi-close"
-                  :no-data-text="$t('myProfile.NO_RESULTS_FOUND')"
-                  :data-vv-as="$t('myProfile.CITY')"
-                  :error="errors.has('city')"
-                  :error-messages="errors.collect('city')"
-                  v-validate.disable="'required'"
-                  autocomplete="off"
-                />
-              </v-flex>
-              <v-flex xs12 md4>
-                <v-text-field
                   id="country"
                   name="country"
                   type="text"
@@ -167,34 +135,6 @@
                   :error="errors.has('country')"
                   :error-messages="errors.collect('country')"
                   v-validate.disable="'required'"
-                  autocomplete="off"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12 md6>
-                <v-text-field
-                  id="urlTwitter"
-                  name="urlTwitter"
-                  type="url"
-                  label="Twitter"
-                  v-model="urlTwitter"
-                  data-vv-as="Twitter"
-                  :error="errors.has('urlTwitter')"
-                  :error-messages="errors.collect('urlTwitter')"
-                  v-validate.disable="'url'"
-                  autocomplete="off"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12 md6>
-                <v-text-field
-                  id="urlGitHub"
-                  name="urlGitHub"
-                  type="url"
-                  label="GitHub"
-                  v-model="urlGitHub"
-                  data-vv-as="GitHub"
-                  :error="errors.has('urlGitHub')"
-                  :error-messages="errors.collect('urlGitHub')"
-                  v-validate.disable="'url'"
                   autocomplete="off"
                 ></v-text-field>
               </v-flex>
@@ -262,21 +202,6 @@ export default {
         this.addProfileData(data)
       }
     },
-    allCities() {
-      return this.$store.state.cities.allCities
-    },
-    city: {
-      get() {
-        return this.$store.state.profile.profile.city
-      },
-      set(value) {
-        const data = {
-          key: 'city',
-          value
-        }
-        this.addProfileData(data)
-      }
-    },
     country: {
       get() {
         return this.$store.state.profile.profile.country
@@ -318,7 +243,6 @@ export default {
     ...mapActions([
       'changeMyPassword',
       'getProfile',
-      'getAllCities',
       'addProfileData',
       'saveProfile'
     ]),
@@ -327,11 +251,7 @@ export default {
       if (valid) {
         await this.saveProfile({
           name: this.name,
-          phone: this.phone,
-          city: this.city,
-          country: this.country,
-          urlTwitter: this.urlTwitter,
-          urlGitHub: this.urlGitHub
+          country: this.country
         })
       }
     },
@@ -366,7 +286,6 @@ export default {
   },
   async mounted() {
     await this.getProfile()
-    await this.getAllCities()
   }
 }
 </script>
