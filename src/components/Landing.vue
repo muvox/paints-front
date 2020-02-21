@@ -1,22 +1,36 @@
 <template>
-  <v-container>
+  <v-container align="center">
     <v-row
       v-for="paints in this.chunkedPaints"
       :key="paints.index"
       align="start"
       justify="start"
+      min-width="300 px"
     >
-      <v-col cols="3" v-for="paint in paints" :key="paint.id" justify="center">
-        <PaintCard :paint="paint" :key="paint.id"></PaintCard>
+      <v-col
+        cols="12"
+        sm="4"
+        v-for="paint in paints"
+        :key="paint.id"
+        justify="start"
+        align="start"
+      >
+        <PaintCard
+          @click="paintDetails(paint.id)"
+          :paint="paint"
+          :key="paint.id"
+        ></PaintCard>
       </v-col>
     </v-row>
     <!-- <button v-on:click="paskaa">Click</button> -->
+    <!-- cotainer with dividers, 1 for color ball and another for details -->
   </v-container>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 import PaintCard from './common/PaintCard.vue'
+import router from '@/router'
 export default {
   metaInfo() {
     return {
@@ -36,7 +50,10 @@ export default {
       console.log(this.chunkedPaints)
     },
     chunkPaints(array) {
-      return this._.chunk(array, 4)
+      return this._.chunk(array, 3)
+    },
+    paintDetails(id) {
+      router.push({ name: 'Paint', params: { paintId: id } })
     }
   },
   async mounted() {
