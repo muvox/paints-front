@@ -22,7 +22,7 @@
         ></PaintCard>
       </v-col>
     </v-row>
-    <!-- <button v-on:click="paskaa">Click</button> -->
+    <!-- <button v-on:click="roskaa">Click</button> -->
     <!-- cotainer with dividers, 1 for color ball and another for details -->
   </v-container>
 </template>
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     ...mapActions(['getAllPaints']),
-    paskaa() {
+    roskaa() {
       console.log(this.chunkedPaints)
     },
     chunkPaints(array) {
